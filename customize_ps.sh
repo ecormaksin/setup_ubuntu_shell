@@ -1,6 +1,7 @@
 #!/bin/sh
 
 FILE_PATH=/etc/customize_shell_ps
+CHECK_EXPORT_PS1_STR="export PS1="
 SHELL_RC_FILE_PATH=$HOME/.bashrc
 EXPORT_USER_STRING="export PS1=\"\[\e[1;32m\]\u@\h \[\e[36m\]\D{%y/%m/%d %H:%M:%S}\[\e[0m\]\$PS1_GIT_BRANCH \w"'\\n'"\\$ \""
 SHELL_RC_ROOT_USER_FILE_PATH=/root/.bashrc
@@ -47,7 +48,7 @@ if [ -e "${FILE_PATH}" ]; then
         echo ". ${FILE_PATH}" >> "${SHELL_RC_FILE_PATH}"
     fi
 
-    cat "${SHELL_RC_FILE_PATH}" | grep "${EXPORT_USER_STRING}" >/dev/null
+    cat "${SHELL_RC_FILE_PATH}" | grep "${CHECK_EXPORT_PS1_STR}" >/dev/null
     if [ $? -ne 0 ]; then
         echo "${EXPORT_USER_STRING}" >> "${SHELL_RC_FILE_PATH}"
     fi
@@ -59,7 +60,7 @@ if [ -e "${FILE_PATH}" ]; then
         echo ". ${FILE_PATH}" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
     fi
 
-    sudo cat "${SHELL_RC_ROOT_USER_FILE_PATH}" | grep "${EXPORT_ROOT_USER_STRING}" >/dev/null
+    sudo cat "${SHELL_RC_ROOT_USER_FILE_PATH}" | grep "${CHECK_EXPORT_PS1_STR}" >/dev/null
     if [ $? -ne 0 ]; then
         echo "${EXPORT_ROOT_USER_STRING}" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
     fi
