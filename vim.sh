@@ -2,7 +2,6 @@
 
 cd `dirname $0`
 
-PACKAGE_NAME=vim
 SHELL_RC_FILE_PATH=$HOME/.bashrc
 VIM_ALIAS_STRING="alias vi='vim'"
 
@@ -16,13 +15,13 @@ fi
 
 . "${SHELL_RC_FILE_PATH}"
 
-sudo apt list --installed | grep "${PACKAGE_NAME}" >/dev/null
+dpkg -l vim | grep -E "^ii( )+vim" >/dev/null
 if [ $? -eq 0 ]; then
     exit 0
 fi
 
 sudo apt -y update
 sudo apt -y upgrade
-sudo apt -y install "${PACKAGE_NAME}"
+sudo apt -y install vim
 
 exit 0

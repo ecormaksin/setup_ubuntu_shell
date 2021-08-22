@@ -1,14 +1,13 @@
 #!/bin/sh
 
 SHELL_RC_FILE_PATH=$HOME/.bashrc
-PACKAGE_NAME=language-pack-ja
 EXPORT_STRING="export LANG=ja_JP.UTF-8"
 
-sudo apt list --installed | grep "${PACKAGE_NAME}" >/dev/null
+dpkg -l language-pack-ja | grep -E "^ii( )+language-pack-ja" >/dev/null
 if [ $? -ne 0 ]; then
     sudo apt -y update
     sudo apt -y upgrade
-    sudo apt -y install "${PACKAGE_NAME}"
+    sudo apt -y install language-pack-ja
 fi
 
 cat "${SHELL_RC_FILE_PATH}" | grep "${EXPORT_STRING}" >/dev/null
