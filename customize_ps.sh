@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 FILE_PATH=/etc/customize_shell_ps
 CHECK_EXPORT_PS1_STR="export PS1="
@@ -44,7 +44,7 @@ if [ -e "${FILE_PATH}" ]; then
     # 一般ユーザー
     cat "${SHELL_RC_FILE_PATH}" | grep ". ${FILE_PATH}" >/dev/null
     if [ $? -ne 0 ]; then
-        echo -n "\n" >> "${SHELL_RC_FILE_PATH}"
+        echo -e -n "\n" >> "${SHELL_RC_FILE_PATH}"
         echo ". ${FILE_PATH}" >> "${SHELL_RC_FILE_PATH}"
     fi
 
@@ -56,7 +56,7 @@ if [ -e "${FILE_PATH}" ]; then
     # rootユーザー
     sudo cat "${SHELL_RC_ROOT_USER_FILE_PATH}" | grep ". ${FILE_PATH}" >/dev/null
     if [ $? -ne 0 ]; then
-        echo -n "\n" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
+        echo -e -n "\n" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
         echo ". ${FILE_PATH}" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
     fi
 
