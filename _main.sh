@@ -8,6 +8,5 @@ cd `dirname $0`; ./golang.sh
 cd `dirname $0`; ./ghq.sh
 cd `dirname $0`; ./peco.sh
 cd `dirname $0`; ./ghq-peco-alias.sh
-cd `dirname $0`; ./ansible.sh
 
 exec $SHELL -l

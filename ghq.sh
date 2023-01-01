@@ -8,7 +8,7 @@ if [ $? -eq 0 ]; then
     exit 0
 fi
 
-/usr/local/go/bin/go get github.com/x-motemen/ghq
+/usr/local/go/bin/go install github.com/x-motemen/ghq@latest
 
 sudo tee "${ADD_GOLANG_PKG_FILE_PATH}" <<EOF >/dev/null
 GOLANG_PKG_PATH=\$HOME/go/bin
