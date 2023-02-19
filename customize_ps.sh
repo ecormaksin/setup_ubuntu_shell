@@ -21,7 +21,7 @@ function ps1_newline() {
 }
 
 function ps1_customize() {
-    ps1_ls
+    # ps1_ls
     ps1_newline
 }
 
