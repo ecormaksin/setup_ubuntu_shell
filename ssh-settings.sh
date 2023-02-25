@@ -10,6 +10,9 @@ tee "${SSH_DIR_PATH}/config" <<EOF >/dev/null
 Host *
     ServerAliveInterval 60
     ServerAliveCountMax 5
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    TCPKeepAlive yes
 
 Include */config
 EOF
