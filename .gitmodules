@@ -1,4 +1,0 @@
-[submodule "vimrc"]
-	path = vimrc
-	url = git@github.com:ecormaksin/vimrc.git
-	ignore = dirty
