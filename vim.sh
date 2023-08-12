@@ -9,7 +9,7 @@ sudo cp -f ./vimrc/vimrc /etc/vim/vimrc.local
 
 cat "${SHELL_RC_FILE_PATH}" | grep "${VIM_ALIAS_STRING}" >/dev/null
 if [ $? -ne 0 ]; then
-    echo -n "\n" >> "${SHELL_RC_FILE_PATH}"
+    echo "" >> "${SHELL_RC_FILE_PATH}"
     echo "${VIM_ALIAS_STRING}" >> "${SHELL_RC_FILE_PATH}"
 fi
 
