@@ -2,23 +2,9 @@
 
 ## _main.sh実行前の手動手順
 
-- ssh用の設定フォルダーと基底ファイルを作成する
+- `_setup_ssh_conf.sh` を実行してssh用の設定フォルダーと基底ファイルを作成する
 
-  ```shell
-  SSH_DIR_PATH=$HOME/.ssh
-
-  if [ ! -d "${SSH_DIR_PATH}" ]; then mkdir "${SSH_DIR_PATH}"; fi
-
-  tee "${SSH_DIR_PATH}/config" <<EOF >/dev/null
-  Host *
-      ServerAliveInterval 60
-      ServerAliveCountMax 5
-      AddKeysToAgent yes
-      IdentitiesOnly yes
-
-  Include */config
-  EOF
-  ```
+- `~/.ssh` へprivate鍵を配置し、`chmod 600 ~/.ssh/<private_key_file_name>` を実行する。
 
 - `keychain` を使ってSSH接続のprivate鍵をログイン時に読み込ませる。
   （private鍵のアルゴリズムは `ed25519`、ファイル パスは `~/.ssh/id_ed25519` の想定）

@@ -7,5 +7,8 @@ cd `dirname $0`; ./golang.sh
 cd `dirname $0`; ./ghq.sh
 cd `dirname $0`; ./peco.sh
 cd `dirname $0`; ./ghq-peco-alias.sh
+cd `dirname $0`; ./pyenv.sh
+cd `dirname $0`; ./nvm.sh
+cd `dirname $0`; ./sdkman.sh
 
 exec $SHELL -l

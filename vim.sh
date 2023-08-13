@@ -2,18 +2,18 @@
 
 cd `dirname $0`
 
-SHELL_RC_FILE_PATH=$HOME/.bashrc
+BASH_ALIASES_FILE_PATH=$HOME/.bash_aliases
 VIM_ALIAS_STRING="alias vi='vim'"
 
 sudo cp -f ./vimrc/vimrc /etc/vim/vimrc.local
 
-cat "${SHELL_RC_FILE_PATH}" | grep "${VIM_ALIAS_STRING}" >/dev/null
+cat "${BASH_ALIASES_FILE_PATH}" | grep "${VIM_ALIAS_STRING}" >/dev/null
 if [ $? -ne 0 ]; then
-    echo "" >> "${SHELL_RC_FILE_PATH}"
-    echo "${VIM_ALIAS_STRING}" >> "${SHELL_RC_FILE_PATH}"
+    echo "" >> "${BASH_ALIASES_FILE_PATH}"
+    echo "${VIM_ALIAS_STRING}" >> "${BASH_ALIASES_FILE_PATH}"
 fi
 
-. "${SHELL_RC_FILE_PATH}"
+. "${BASH_ALIASES_FILE_PATH}"
 
 dpkg -l vim | grep -E "^ii( )+vim" >/dev/null
 if [ $? -eq 0 ]; then
