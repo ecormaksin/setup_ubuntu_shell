@@ -38,6 +38,6 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 pyenv install 3.11.4
 pyenv global 3.11.4
 
-exec $SHELL -l
+. ~/.bash_profile
 
 exit 0

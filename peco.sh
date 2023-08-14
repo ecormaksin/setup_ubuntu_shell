@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dpkg -l peco | grep -E "^ii( )+peco" >/dev/null
+dpkg -l | grep -E "^ii( )+peco" >/dev/null
 if [ $? -eq 0 ]; then
     exit 0
 fi

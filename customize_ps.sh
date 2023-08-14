@@ -44,7 +44,7 @@ if [ -e "${FILE_PATH}" ]; then
     # 一般ユーザー
     cat "${SHELL_RC_FILE_PATH}" | grep ". ${FILE_PATH}" >/dev/null
     if [ $? -ne 0 ]; then
-        echo -e -n "\n" >> "${SHELL_RC_FILE_PATH}"
+        echo "" >> "${SHELL_RC_FILE_PATH}"
         echo ". ${FILE_PATH}" >> "${SHELL_RC_FILE_PATH}"
     fi
 
@@ -56,7 +56,7 @@ if [ -e "${FILE_PATH}" ]; then
     # rootユーザー
     sudo cat "${SHELL_RC_ROOT_USER_FILE_PATH}" | grep ". ${FILE_PATH}" >/dev/null
     if [ $? -ne 0 ]; then
-        echo -e -n "\n" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
+        echo "" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
         echo ". ${FILE_PATH}" | sudo tee -a "${SHELL_RC_ROOT_USER_FILE_PATH}" >/dev/null
     fi
 

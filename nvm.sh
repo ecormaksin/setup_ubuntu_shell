@@ -14,6 +14,6 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 nvm use --lts
 
-exec $SHELL -l
+. ~/.bash_profile
 
 exit 0
