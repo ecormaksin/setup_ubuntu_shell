@@ -23,6 +23,15 @@
       wsl --terminate "<ディストリビューション名>"
       ```
 
+- `LANG=C xdg-user-dirs-gtk-update` を実行してホームディレクトリのフォルダ名を日本語から英語へ変更する。
+
+- gitをインストールする。
+
+  ```shell
+  dpkg -l git && sudo apt -y purge git
+  dpkg -l git-all || sudo apt -y install git-all
+  ```
+
 - `./_setup_bash_profile.sh` を実行して `bash_profile` をセットアップする。
 
 - `./_setup_ssh_conf.sh` を実行してssh用の設定フォルダーと基底ファイルを作成する
