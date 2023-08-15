@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cd `dirname $0`
-
 BASH_ALIASES_FILE_PATH=$HOME/.bash_aliases
 VIM_ALIAS_STRING="alias vi='vim'"
 

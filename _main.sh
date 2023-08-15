@@ -1,14 +1,15 @@
 #!/bin/sh
 
-cd `dirname $0`; ./lang_ja.sh
-cd `dirname $0`; ./customize_ps.sh
-cd `dirname $0`; ./vim.sh
-cd `dirname $0`; ./xclip.sh
-cd `dirname $0`; ./golang.sh
-cd `dirname $0`; ./ghq.sh
-cd `dirname $0`; ./peco.sh
-cd `dirname $0`; ./ghq-peco-alias.sh
-cd `dirname $0`; ./pyenv.sh
-cd `dirname $0`; ./ansible.sh
-cd `dirname $0`; ./nvm.sh
-cd `dirname $0`; ./sdkman.sh
+sh ./curl.sh
+sh ./lang_ja.sh
+sh ./customize_ps.sh
+sh ./vim.sh
+sh ./xclip.sh
+sh ./golang.sh
+sh ./ghq.sh
+sh ./peco.sh
+sh ./ghq-peco-alias.sh
+sh ./pyenv.sh
+sh ./ansible.sh
+sh ./nvm.sh
+sh ./sdkman.sh
