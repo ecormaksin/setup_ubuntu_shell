@@ -38,7 +38,7 @@
 
 - `~/.ssh` へprivate鍵を配置し、`chmod 600 ~/.ssh/<private_key_file_name>` を実行する。
 
-- `~/.ssh` へpublic鍵を配置し、`chmod 644 ~/.ssh/<public_key_file_name>` を実行する。
+- `~/.ssh` へpublic鍵を配置し、`chmod 600 ~/.ssh/<public_key_file_name>` を実行する。
 
 - `keychain` を使ってSSH接続のprivate鍵をログイン時に読み込ませる。
   （private鍵のアルゴリズムは `ed25519`、ファイル パスは `~/.ssh/id_ed25519` の想定）
