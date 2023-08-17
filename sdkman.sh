@@ -9,6 +9,6 @@ sudo apt -y install zip unzip
 
 curl -s "https://get.sdkman.io" | bash
 
-. ~/.bash_profile
+. ~/.profile
 
 exit 0

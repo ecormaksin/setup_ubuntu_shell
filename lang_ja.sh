@@ -12,7 +12,7 @@ fi
 localectl status | grep "${TARGET_LOCALE}" >/dev/null
 if [ $? -ne 0 ]; then
     sudo localectl --no-convert set-locale LANG="${TARGET_LOCALE}"
-    . ~/.bash_profile
+    . ~/.profile
 fi
 
 exit 0

@@ -12,6 +12,6 @@ else
     python -m pip install --user ansible
 fi
 
-. ~/.bash_profile
+. ~/.profile
 
 exit 0
