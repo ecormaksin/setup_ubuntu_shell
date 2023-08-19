@@ -11,4 +11,6 @@ curl -s "https://get.sdkman.io" | bash
 
 . ~/.profile
 
+sdk install java 17.0.8-librca
+
 exit 0
