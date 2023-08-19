@@ -23,7 +23,7 @@
       wsl --terminate "<ディストリビューション名>"
       ```
 
-- `LANG=C xdg-user-dirs-gtk-update` を実行してホームディレクトリのフォルダ名を日本語から英語へ変更する。
+- `LANG=C xdg-user-dirs-gtk-update --force` を実行してホームディレクトリのフォルダ名を日本語から英語へ変更する。
 
 - gitをインストールする。
 
@@ -50,3 +50,42 @@
   [ $GREP_RESULT -ne 0 ] && echo -e "\n${EXPORT_COMMAND}" >> ~/.profile
   . ~/.profile
   ```
+
+## GUIで日本語入力する場合に必要な設定
+
+- 日本語対応フォントのインストール
+
+  ```shell
+  sudo apt -y install fonts-noto
+  ```
+
+- 言語サポートのインストール
+
+  ```shell
+  sudo apt -y install language-selector-common language-selector-gnome
+  ```
+
+- fcitxの設定
+  - WSLの場合、IBusで動かそうとしてもうまくいかなかった。
+
+    <https://qiita.com/SoraKumo/items/f83548efde26788a1fc7>
+
+    ```shell
+    sudo apt update
+    sudo apt install -y fcitx-bin fcitx-mozc dbus-x11 language-pack-ja
+    sudo update-locale LANG=ja_JP.UTF8
+
+    cat << EOS | sudo tee /etc/fonts/local.conf
+    <?xml version="1.0"?>
+    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+    <fontconfig><dir>/mnt/c/Windows/Fonts</dir></fontconfig>
+    EOS
+
+    cat << EOS >> ~/.profile
+    export GTK_IM_MODULE=fcitx
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
+    export DefaultIMModule=fcitx
+    fcitx-autostart &> /dev/null
+    EOS
+    ```
