@@ -10,6 +10,7 @@ sudo apt -y install zip unzip
 curl -s "https://get.sdkman.io" | bash
 
 . ~/.profile
+source "/home/$USER/.sdkman/bin/sdkman-init.sh"
 
 sdk install java 17.0.8-librca
 
