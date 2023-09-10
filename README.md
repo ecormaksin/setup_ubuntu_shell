@@ -7,6 +7,9 @@
   - `/etc/wsl.conf` に以下を追加する。
 
       ```text
+      [boot]
+      systemd=true
+
       [interop]
       appendWindowsPath = false
       ```
@@ -71,8 +74,8 @@
     <https://qiita.com/SoraKumo/items/f83548efde26788a1fc7>
 
     ```shell
-    sudo apt update
-    sudo apt install -y fcitx-bin fcitx-mozc dbus-x11 language-pack-ja
+    sudo apt -y update
+    sudo apt -y install fcitx-bin fcitx-mozc dbus-x11 language-pack-ja
     sudo update-locale LANG=ja_JP.UTF8
 
     cat << EOS | sudo tee /etc/fonts/local.conf
