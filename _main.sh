@@ -2,6 +2,7 @@
 
 sh ./curl.sh
 sh ./lang_ja.sh
+sh ./time_zone.sh
 sh ./customize_ps.sh
 sh ./vim.sh
 sh ./xclip.sh
