@@ -1,7 +1,7 @@
 #!/bin/sh
 
-GO_TARBALL_FILE_NAME=go1.19.4.linux-amd64.tar.gz
-GO_TARBALL_URL=https://golang.org/dl/${GO_TARBALL_FILE_NAME}
+GO_TARBALL_FILE_NAME=go1.21.1.linux-amd64.tar.gz
+GO_TARBALL_URL=https://go.dev/dl/${GO_TARBALL_FILE_NAME}
 GO_TARBALL_DST_DIR=/usr/local/src
 GO_TARBALL_DST_FILE_PATH="${GO_TARBALL_DST_DIR}/${GO_TARBALL_FILE_NAME}"
 ADD_GOLANG_BIN_FILE_PATH=/etc/add_path_golang_bin
