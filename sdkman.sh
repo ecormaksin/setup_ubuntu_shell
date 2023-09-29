@@ -5,7 +5,17 @@ if [ $? -eq 0 ]; then
     exit 0
 fi
 
-sudo apt -y install zip unzip
+dpkg -l | grep -E "^ii( )+zip" >/dev/null
+if [ $? -ne 0 ]; then
+    sudo apt -y update
+    sudo apt -y install zip
+fi
+
+dpkg -l | grep -E "^ii( )+unzip" >/dev/null
+if [ $? -ne 0 ]; then
+    sudo apt -y update
+    sudo apt -y install unzip
+fi
 
 curl -s "https://get.sdkman.io" | bash
 
