@@ -14,7 +14,7 @@ fi
 
 sudo mkdir -p "${GO_TARBALL_DST_DIR}"
 cd "${GO_TARBALL_DST_DIR}"
-sudo wget "${GO_TARBALL_URL}"
+sudo wget --inet4-only "${GO_TARBALL_URL}"
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "${GO_TARBALL_DST_FILE_PATH}"
 
 sudo tee "${ADD_GOLANG_BIN_FILE_PATH}" <<EOF >/dev/null
