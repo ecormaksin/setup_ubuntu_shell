@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 dpkg -l | grep -E "^ii( )+tzdata" >/dev/null
 if [ $? -ne 0 ]; then

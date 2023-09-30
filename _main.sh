@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 sh ./curl.sh
 sh ./lang_ja.sh

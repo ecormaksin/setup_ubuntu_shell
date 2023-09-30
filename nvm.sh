@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 which nvm >/dev/null
 if [ $? -eq 0 ]; then

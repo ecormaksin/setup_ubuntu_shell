@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 dpkg -l | grep -E "^ii( )+peco" >/dev/null
 if [ $? -eq 0 ]; then

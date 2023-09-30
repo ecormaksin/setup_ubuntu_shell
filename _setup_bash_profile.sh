@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 BASH_PROFILE_FILE_PATH=$HOME/.bash_profile
 

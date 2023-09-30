@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 BASH_ALIASES_FILE_PATH=$HOME/.bash_aliases
 VIM_ALIAS_STRING="alias vi='vim'"

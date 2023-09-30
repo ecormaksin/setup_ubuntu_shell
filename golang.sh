@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 GO_TARBALL_FILE_NAME=go1.21.1.linux-amd64.tar.gz
 GO_TARBALL_URL=https://go.dev/dl/${GO_TARBALL_FILE_NAME}

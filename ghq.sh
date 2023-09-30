@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 ADD_GOLANG_PKG_FILE_PATH=/etc/add_path_golang_pkg
 SHELL_RC_FILE_PATH=$HOME/.bashrc

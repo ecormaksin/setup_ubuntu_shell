@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 TARGET_LOCALE=ja_JP.UTF-8
 

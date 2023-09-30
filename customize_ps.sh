@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 FILE_PATH=/etc/customize_shell_ps
 CHECK_EXPORT_PS1_STR="export PS1="
