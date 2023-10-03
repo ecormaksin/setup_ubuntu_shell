@@ -59,7 +59,12 @@ fi
 sudo usermod -aG docker $USER
 newgrp docker
 
-sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-sudo chmod g+rwx "$HOME/.docker" -R
+
+DOCKER_USER_DIR="${HOME}/.docker"
+
+if [ -e "${DOCKER_USER_DIR}" ]; then
+    sudo chown "$USER":"$USER" "${DOCKER_USER_DIR}" -R
+    sudo chmod g+rwx "${DOCKER_USER_DIR}" -R
+fi
 
 exit 0
