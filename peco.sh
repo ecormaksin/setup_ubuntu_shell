@@ -6,6 +6,6 @@ if [ $? -eq 0 ]; then
 fi
 
 sudo apt-get -qq update >/dev/null
-sudo apt-get -qq install peco >/dev/null
+DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install peco >/dev/null
 
 exit 0

@@ -9,9 +9,9 @@ fi
 
 python -m pip list | grep ansible >/dev/null
 if [ $? -eq 0 ]; then
-    python -m pip install --upgrade --user ansible
+    python -m pip -q install --upgrade --user ansible
 else
-    python -m pip install --user ansible
+    python -m pip -q install --user ansible
 fi
 
 . ~/.profile

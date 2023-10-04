@@ -5,7 +5,7 @@ if [ $? -eq 0 ]; then
     exit 0
 fi
 
-curl https://pyenv.run | bash
+curl -sfL https://pyenv.run | bash
 
 for FILE_PATH in "${HOME}/.bashrc" "${HOME}/.profile" "${HOME}/.bash_profile" "${HOME}/.bash_login"
 do
@@ -31,7 +31,7 @@ do
 
 done
 
-sudo apt-get -qq update >/dev/null; sudo apt-get -qq install build-essential libssl-dev zlib1g-dev \
+sudo apt-get -qq update >/dev/null; DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl \
 libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev >/dev/null
 

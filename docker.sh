@@ -18,7 +18,7 @@ do
     fi
 
     sudo apt-get -qq update >/dev/null
-    sudo apt-get -qq install "${PKG_NAME}" >/dev/null
+    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install "${PKG_NAME}" >/dev/null
 done
 
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -48,7 +48,7 @@ do
         continue
     fi
 
-    sudo apt-get -qq install "${PKG_NAME}" >/dev/null
+    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install "${PKG_NAME}" >/dev/null
 done
 
 sudo cat /etc/group | grep docker >/dev/null
