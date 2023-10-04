@@ -7,7 +7,7 @@ do
         continue
     fi
 
-    sudo apt -y -q purge "${PKG_NAME}"
+    sudo apt-get -qq purge "${PKG_NAME}" >/dev/null
 done
 
 for PKG_NAME in ca-certificates curl gnupg
@@ -17,8 +17,8 @@ do
         continue
     fi
 
-    sudo apt -y -q update
-    sudo apt -y -q install "${PKG_NAME}"
+    sudo apt-get -qq update >/dev/null
+    sudo apt-get -qq install "${PKG_NAME}" >/dev/null
 done
 
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -38,7 +38,7 @@ if [ ! -e "${DOCKER_SOURCE_LIST}" ]; then
         "deb [arch="$(dpkg --print-architecture)" signed-by="${DOCKER_KEYRING_FILE}"] https://download.docker.com/linux/ubuntu \
         "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
         sudo tee "${DOCKER_SOURCE_LIST}" > /dev/null
-    sudo apt -y -q update
+    sudo apt-get -qq update >/dev/null
 fi
 
 for PKG_NAME in docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -48,7 +48,7 @@ do
         continue
     fi
 
-    sudo apt -y -q install "${PKG_NAME}"
+    sudo apt-get -qq install "${PKG_NAME}" >/dev/null
 done
 
 sudo cat /etc/group | grep docker >/dev/null

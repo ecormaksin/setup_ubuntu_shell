@@ -31,13 +31,13 @@ do
 
 done
 
-sudo apt -y update; sudo apt -y install build-essential libssl-dev zlib1g-dev \
+sudo apt-get -qq update >/dev/null; sudo apt-get -qq install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev >/dev/null
 
 . ~/.profile
 
-pyenv install 3.11.4
-pyenv global 3.11.4
+pyenv install 3.11.6
+pyenv global 3.11.6
 
 exit 0

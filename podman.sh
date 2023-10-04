@@ -2,8 +2,8 @@
 
 dpkg -l | grep -E "^ii( )+podman" >/dev/null
 if [ $? -ne 0 ]; then
-    sudo apt -y -q update
-    sudo apt -y -q install podman
+    sudo apt-get -qq update >/dev/null
+    sudo apt-get -qq install podman >/dev/null
 fi
 
 PIP_LIST=`pip list -v`

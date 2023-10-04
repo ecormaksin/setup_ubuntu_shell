@@ -31,8 +31,8 @@
 - gitをインストールする。
 
   ```shell
-  dpkg -l git && sudo apt -y purge git
-  dpkg -l git-all || sudo apt -y install git-all
+  dpkg -l git && sudo apt-get -qq purge git >/dev/null
+  dpkg -l git-all || sudo apt-get -qq install git-all >/dev/null
   ```
 
   ```shell
@@ -50,7 +50,7 @@
   （private鍵のアルゴリズムは `ed25519`、ファイル パスは `~/.ssh/id_ed25519` の想定）
 
   ```shell
-  sudo apt -y install keychain
+  sudo apt-get -qq install keychain >/dev/null
 
   EXPORT_COMMAND='eval `keychain --eval --agents ssh id_ed25519`'
   echo ~/.profile | grep "${EXPORT_COMMAND}" >/dev/null
@@ -64,13 +64,13 @@
 - 日本語対応フォントのインストール
 
   ```shell
-  sudo apt -y install fonts-noto
+  sudo apt-get -qq install fonts-noto >/dev/null
   ```
 
 - 言語サポートのインストール
 
   ```shell
-  sudo apt -y install language-selector-common language-selector-gnome
+  sudo apt-get -qq install language-selector-common language-selector-gnome >/dev/null
   ```
 
 - fcitxの設定
@@ -79,8 +79,8 @@
     <https://qiita.com/SoraKumo/items/f83548efde26788a1fc7>
 
     ```shell
-    sudo apt -y update
-    sudo apt -y install fcitx-bin fcitx-mozc dbus-x11 language-pack-ja
+    sudo apt-get -qq update >/dev/null
+    sudo apt-get -qq install fcitx-bin fcitx-mozc dbus-x11 language-pack-ja >/dev/null
     sudo update-locale LANG=ja_JP.UTF8
 
     cat << EOS | sudo tee /etc/fonts/local.conf

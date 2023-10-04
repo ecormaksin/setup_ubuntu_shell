@@ -5,8 +5,7 @@ if [ $? -eq 0 ]; then
     exit 0
 fi
 
-sudo apt -y update
-sudo apt -y upgrade
-sudo apt -y install peco
+sudo apt-get -qq update >/dev/null
+sudo apt-get -qq install peco >/dev/null
 
 exit 0
