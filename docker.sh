@@ -7,7 +7,7 @@ do
         continue
     fi
 
-    sudo apt-get -qq purge "${PKG_NAME}" >/dev/null
+    sudo apt-get -y purge "${PKG_NAME}" >/dev/null
 done
 
 for PKG_NAME in ca-certificates curl gnupg
@@ -17,8 +17,8 @@ do
         continue
     fi
 
-    sudo apt-get -qq update >/dev/null
-    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install "${PKG_NAME}" >/dev/null
+    sudo apt-get -y update
+    sudo apt-get -y install "${PKG_NAME}"
 done
 
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -38,20 +38,20 @@ if [ ! -e "${DOCKER_SOURCE_LIST}" ]; then
         "deb [arch="$(dpkg --print-architecture)" signed-by="${DOCKER_KEYRING_FILE}"] https://download.docker.com/linux/ubuntu \
         "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
         sudo tee "${DOCKER_SOURCE_LIST}" > /dev/null
-    sudo apt-get -qq update >/dev/null
+    sudo apt-get -y update
 fi
 
 for PKG_NAME in docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 do
-    dpkg -l | grep -E "^ii( )+${PKG_NAME}" >/dev/null
+    dpkg -l | grep -E "^ii( )+${PKG_NAME}"
     if [ $? -eq 0 ]; then
         continue
     fi
 
-    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install "${PKG_NAME}" >/dev/null
+    sudo apt-get -y install "${PKG_NAME}"
 done
 
-sudo cat /etc/group | grep docker >/dev/null
+sudo cat /etc/group | grep docker
 if [ $? -ne 0 ]; then
     sudo groupadd docker
 fi

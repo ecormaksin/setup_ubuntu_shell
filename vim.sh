@@ -16,8 +16,8 @@ fi
 
 dpkg -l | grep -E "^ii( )+vim" >/dev/null
 if [ $? -ne 0 ]; then
-    sudo apt-get -qq update >/dev/null
-    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install vim >/dev/null
+    sudo apt-get -y update
+    sudo apt-get -y install vim
 fi
 
 exit 0

@@ -2,8 +2,8 @@
 
 dpkg -l | grep -E "^ii( )+xclip" >/dev/null
 if [ $? -ne 0 ]; then
-    sudo apt-get -qq update >/dev/null
-    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install xclip >/dev/null
+    sudo apt-get -y update
+    sudo apt-get -y install xclip
 fi
 
 BASH_ALIASES_FILE_PATH=$HOME/.bash_aliases

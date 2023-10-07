@@ -31,9 +31,9 @@ do
 
 done
 
-sudo apt-get -qq update >/dev/null; DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install build-essential libssl-dev zlib1g-dev \
+sudo apt-get -y update; sudo apt-get -y install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev >/dev/null
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 . ~/.profile
 

@@ -7,14 +7,14 @@ fi
 
 dpkg -l | grep -E "^ii( )+zip" >/dev/null
 if [ $? -ne 0 ]; then
-    sudo apt-get -qq update >/dev/null
-    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install zip >/dev/null
+    sudo apt-get -y update
+    sudo apt-get -y install zip
 fi
 
 dpkg -l | grep -E "^ii( )+unzip" >/dev/null
 if [ $? -ne 0 ]; then
-    sudo apt-get -qq update >/dev/null
-    DEBIAN_FRONTEND=noninteractive sudo apt-get -qq install unzip >/dev/null
+    sudo apt-get -y update
+    sudo apt-get -y install unzip
 fi
 
 curl -s "https://get.sdkman.io" | bash
