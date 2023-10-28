@@ -3,7 +3,7 @@
 dpkg -l | grep -E "^ii( )+xfce4" >/dev/null
 if [ $? -ne 0 ]; then
     sudo apt-get -y update
-    sudo apt-get -y install xfce4 xfce4-goodies fonts-noto fcitx5-mozc xrdp
+    sudo apt-get -y install xfce4 xfce4-goodies xdg-user-dirs-gtk fonts-noto fcitx5-mozc xrdp
 fi
 
 # Configure the policy xrdp session
