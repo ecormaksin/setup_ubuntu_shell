@@ -28,4 +28,7 @@ fi
 
 . "${SHELL_RC_FILE_PATH}"
 
+mkdir -p ~/ws/ghq
+git config --global ghq.root '~/ws/ghq'
+
 exit 0
