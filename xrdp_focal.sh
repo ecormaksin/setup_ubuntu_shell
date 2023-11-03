@@ -3,7 +3,7 @@
 dpkg -l | grep -E "^ii( )+xfce4" >/dev/null
 if [ $? -ne 0 ]; then
     sudo apt-get -y update
-    sudo apt-get -y install xfce4 xfce4-goodies language-selector-common language-selector-gnome xdg-user-dirs-gtk fonts-noto fcitx5-mozc xrdp
+    sudo apt-get -y install xfce4 xfce4-goodies language-selector-common language-selector-gnome xdg-user-dirs-gtk fonts-noto fcitx-bin fcitx-mozc dbus-x11 xrdp
 fi
 
 # Configure the policy xrdp session
@@ -26,7 +26,15 @@ ResultInactive=yes
 ResultActive=yes
 EOF
 
-im-config -n fcitx5
+cat ~/.profile | grep "GTK_IM_MODULE" >/dev/null
+[ $? -ne 0 ] && \
+cat << EOS >> ~/.profile
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
+fcitx-autostart &> /dev/null
+EOS
 
 echo "xfce4-session" | tee .xsession
 
