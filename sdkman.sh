@@ -31,7 +31,7 @@ sdkman_auto_env=true
 sdkman_auto_complete=true
 EOS
 
-for VERSION_NAME in 21-graalce 17.0.9-graalce 17.0.9-librca 11.0.21-librca
+for VERSION_NAME in 11.0.21-librca 17.0.9-librca 17.0.9-graalce 21-graalce
 do
     sdk install java $VERSION_NAME
 done
