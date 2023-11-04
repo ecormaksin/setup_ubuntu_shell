@@ -3,9 +3,9 @@
 dpkg -l | grep -E "^ii( )+xfce4" >/dev/null
 if [ $? -ne 0 ]; then
     sudo apt-get -y install debconf debconf-utils
-    echo "/usr/sbin/gdm3" | sudo tee /etc/X11/default-display-manager
-    DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true sudo dpkg-reconfigure gdm3
-    echo set shared/default-x-display-manager gdm3 | debconf-communicate
+    sudo sh -c "echo '/usr/sbin/gdm3' > /etc/X11/default-display-manager"
+    sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true dpkg-reconfigure gdm3"
+    sudo sh -c "echo set shared/default-x-display-manager gdm3 | debconf-communicate"
     sudo apt-get -y update
     sudo apt-get -y install xfce4 xfce4-goodies language-selector-common language-selector-gnome xdg-user-dirs-gtk fonts-noto fcitx-bin fcitx-mozc dbus-x11 xrdp
 fi
