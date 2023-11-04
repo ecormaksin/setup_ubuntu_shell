@@ -7,7 +7,7 @@ if [ $? -ne 0 ]; then
     sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true dpkg-reconfigure gdm3"
     sudo sh -c "echo set shared/default-x-display-manager gdm3 | debconf-communicate"
     sudo apt-get -y update
-    sudo apt-get -y install xfce4 xfce4-goodies language-selector-common language-selector-gnome xdg-user-dirs-gtk fonts-noto fcitx-bin fcitx-mozc dbus-x11 xrdp
+    sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true apt-get -y install xfce4 xfce4-goodies language-selector-common language-selector-gnome xdg-user-dirs-gtk fonts-noto fcitx-bin fcitx-mozc dbus-x11 xrdp"
 fi
 
 # Configure the policy xrdp session
