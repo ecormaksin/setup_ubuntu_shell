@@ -22,6 +22,18 @@ curl -s "https://get.sdkman.io" | bash
 . ~/.profile
 . "/home/$USER/.sdkman/bin/sdkman-init.sh"
 
-sdk install java 21-graalce
+SDKMAN_CONF_FILE_PATH=~/.sdkman/etc/config
+[ ! -e "${SDKMAN_CONF_FILE_PATH}" ] && \
+cat << EOS > "${SDKMAN_CONF_FILE_PATH}"
+sdkman_auto_answer=false
+sdkman_colour_enable=true
+sdkman_auto_env=true
+sdkman_auto_complete=true
+EOS
+
+for VERSION_NAME in 21-graalce 17.0.9-graalce 17.0.9-librca 11.0.21-librca
+do
+    sdk install java $VERSION_NAME
+done
 
 exit 0
