@@ -23,13 +23,10 @@ curl -s "https://get.sdkman.io" | bash
 . "/home/$USER/.sdkman/bin/sdkman-init.sh"
 
 SDKMAN_CONF_FILE_PATH=~/.sdkman/etc/config
-[ ! -e "${SDKMAN_CONF_FILE_PATH}" ] && \
-cat << EOS > "${SDKMAN_CONF_FILE_PATH}"
-sdkman_auto_answer=false
-sdkman_colour_enable=true
-sdkman_auto_env=true
-sdkman_auto_complete=true
-EOS
+if [ -e "${SDKMAN_CONF_FILE_PATH}" ]; then
+    sed -i "s/^sdkman_auto_answer=/sdkman_auto_answer=true/" "${SDKMAN_CONF_FILE_PATH}"
+    sed -i "s/^sdkman_auto_env=/sdkman_auto_env=true/" "${SDKMAN_CONF_FILE_PATH}"
+fi
 
 for VERSION_NAME in 11.0.21-librca 17.0.9-librca 17.0.9-graalce 21-graalce
 do

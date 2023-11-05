@@ -2,8 +2,12 @@
 
 dpkg -l | grep -E "^ii( )+xfce4" >/dev/null
 if [ $? -ne 0 ]; then
+    sudo apt-get -y install debconf debconf-utils
+    sudo sh -c "echo '/usr/sbin/gdm3' > /etc/X11/default-display-manager"
+    sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true dpkg-reconfigure gdm3"
+    sudo sh -c "echo set shared/default-x-display-manager gdm3 | debconf-communicate"
     sudo apt-get -y update
-    sudo apt-get -y install xfce4 xfce4-goodies language-selector-common language-selector-gnome xdg-user-dirs-gtk fonts-noto fcitx5-mozc xrdp
+    sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true apt-get -y install xfce4 xfce4-goodies language-selector-common language-selector-gnome xdg-user-dirs-gtk fonts-noto fcitx5-mozc xrdp"
 fi
 
 # Configure the policy xrdp session
