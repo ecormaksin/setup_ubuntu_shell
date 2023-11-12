@@ -15,5 +15,3 @@ nvm install --lts
 nvm use --lts
 
 . ~/.profile
-
-exit 0

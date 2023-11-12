@@ -41,5 +41,3 @@ fcitx-autostart &> /dev/null
 EOS
 
 echo "xfce4-session" | tee ~/.xsession
-
-exit 0

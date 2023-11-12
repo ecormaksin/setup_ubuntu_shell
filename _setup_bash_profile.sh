@@ -10,5 +10,3 @@ do
     GREP_RESULT=$?
     [ $GREP_RESULT -ne 0 ] && echo "${EXPORT_COMMAND}" >> "${BASH_PROFILE_FILE_PATH}"
 done
-
-exit 0

@@ -12,5 +12,3 @@ fi
 echo '' >> "${BASH_ALIASES_FILE_PATH}"
 echo 'alias gp='\''cd $(ghq root)/$(ghq list | peco)'\' >> "${BASH_ALIASES_FILE_PATH}"
 . "${BASH_ALIASES_FILE_PATH}"
-
-exit 0

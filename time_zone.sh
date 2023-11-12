@@ -8,5 +8,3 @@ fi
 
 sudo cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 sudo dpkg-reconfigure -f noninteractive tzdata
-
-exit 0

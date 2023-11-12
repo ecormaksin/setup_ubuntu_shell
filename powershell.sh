@@ -14,13 +14,13 @@ fi
 sudo apt-get -y update
 
 # Install pre-requisite packages.
-sudo apt-get -y install wget apt-transport-https software-properties-common
+sudo apt-get -y install curl apt-transport-https software-properties-common
 
 # Get the version of Ubuntu
 . /etc/os-release
 
 # Download the Microsoft repository keys
-wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
+curl -O https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
 
 # Register the Microsoft repository keys
 sudo dpkg -i packages-microsoft-prod.deb
@@ -34,5 +34,3 @@ sudo apt-get -y update
 ###################################
 # Install PowerShell
 sudo apt-get -y install powershell
-
-exit 0

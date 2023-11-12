@@ -30,5 +30,3 @@ fi
 
 mkdir -p ~/ws/ghq
 git config --global ghq.root '~/ws/ghq'
-
-exit 0

@@ -32,5 +32,3 @@ for VERSION_NAME in 11.0.21-librca 17.0.9-librca 17.0.9-graalce 21-graalce
 do
     sdk install java $VERSION_NAME
 done
-
-exit 0

@@ -23,5 +23,3 @@ if [ $? -ne 0 ]; then
     curl -sfLO http://archive.ubuntu.com/ubuntu/pool/universe/g/golang-github-containernetworking-plugins/containernetworking-plugins_1.1.1+ds1-3build1_amd64.deb
     sudo dpkg -i containernetworking-plugins_1.1.1+ds1-3build1_amd64.deb
 fi
-
-exit 0

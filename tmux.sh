@@ -7,5 +7,3 @@ if [ $? -ne 0 ]; then
 fi
 
 curl --output ~/.tmux.conf --silent https://raw.githubusercontent.com/ecormaksin/tmux_conf/main/.tmux.conf
-
-exit 0

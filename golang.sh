@@ -35,5 +35,3 @@ if [ -e "${ADD_GOLANG_BIN_FILE_PATH}" ]; then
 fi
 
 . "${SHELL_RC_FILE_PATH}"
-
-exit 0

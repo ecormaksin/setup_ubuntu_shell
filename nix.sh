@@ -6,5 +6,3 @@ if [ $? -eq 0 ]; then
 fi
 
 curl -L https://nixos.org/nix/install | sh -s -- --daemon
-
-exit 0

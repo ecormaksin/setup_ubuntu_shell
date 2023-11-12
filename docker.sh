@@ -25,21 +25,17 @@ sudo install -m 0755 -d /etc/apt/keyrings
 
 DOCKER_KEYRING_FILE=/etc/apt/keyrings/docker.gpg
 
-if [ ! -e "${DOCKER_KEYRING_FILE}" ]; then
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o "${DOCKER_KEYRING_FILE}"
-fi
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o "${DOCKER_KEYRING_FILE}"
 
 sudo chmod a+r "${DOCKER_KEYRING_FILE}"
 
 DOCKER_SOURCE_LIST=/etc/apt/sources.list.d/docker.list
 
-if [ ! -e "${DOCKER_SOURCE_LIST}" ]; then
-    echo \
-        "deb [arch="$(dpkg --print-architecture)" signed-by="${DOCKER_KEYRING_FILE}"] https://download.docker.com/linux/ubuntu \
-        "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-        sudo tee "${DOCKER_SOURCE_LIST}" > /dev/null
-    sudo apt-get -y update
-fi
+echo \
+    "deb [arch="$(dpkg --print-architecture)" signed-by="${DOCKER_KEYRING_FILE}"] https://download.docker.com/linux/ubuntu \
+    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+    sudo tee "${DOCKER_SOURCE_LIST}" > /dev/null
+sudo apt-get -y update
 
 for PKG_NAME in docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 do
@@ -57,8 +53,6 @@ if [ $? -ne 0 ]; then
 fi
 
 sudo usermod -aG docker $USER
-newgrp docker
-
 
 DOCKER_USER_DIR="${HOME}/.docker"
 
@@ -66,5 +60,3 @@ if [ -e "${DOCKER_USER_DIR}" ]; then
     sudo chown "$USER":"$USER" "${DOCKER_USER_DIR}" -R
     sudo chmod g+rwx "${DOCKER_USER_DIR}" -R
 fi
-
-exit 0

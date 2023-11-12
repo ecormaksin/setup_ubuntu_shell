@@ -67,5 +67,3 @@ if [ -e "${FILE_PATH}" ]; then
 fi
 
 . "${SHELL_RC_FILE_PATH}"
-
-exit 0

@@ -33,5 +33,3 @@ EOF
 im-config -n fcitx5
 
 echo "xfce4-session" | tee ~/.xsession
-
-exit 0

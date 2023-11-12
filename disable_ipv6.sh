@@ -8,20 +8,4 @@ net.ipv6.conf.default.disable_ipv6=1
 net.ipv6.conf.lo.disable_ipv6=1
 EOF
 
-sudo systemctl restart procps
-
-RC_LOCAL_FILE=/etc/rc.local
-
-if [ ! -e "${RC_LOCAL_FILE}" ]; then
-
-    sudo tee "${RC_LOCAL_FILE}" <<"EOF" >/dev/null
-#!/usr/bin/env bash
-systemctl restart procps
-exit 0
-EOF
-
-fi
-
-sudo chmod 755 "${RC_LOCAL_FILE}"
-
-exit 0
+sudo sysctl -p "${SYSCTL_CONF_FILE}"

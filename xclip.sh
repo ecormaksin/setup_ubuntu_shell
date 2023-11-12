@@ -19,5 +19,3 @@ do
 done
 
 . "${BASH_ALIASES_FILE_PATH}"
-
-exit 0

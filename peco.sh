@@ -7,5 +7,3 @@ fi
 
 sudo apt-get -y update
 sudo apt-get -y install peco
-
-exit 0

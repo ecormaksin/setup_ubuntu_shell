@@ -13,5 +13,3 @@ if [ $? -ne 0 ]; then
     sudo localectl --no-convert set-locale LANG="${TARGET_LOCALE}"
     . ~/.profile
 fi
-
-exit 0
