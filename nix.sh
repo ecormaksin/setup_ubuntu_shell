@@ -15,6 +15,6 @@ cat ~/.bashrc | grep "direnv hook bash" >/dev/null
 [ $? -ne 0 ] && tee -a ~/.bashrc <<"EOF" >/dev/null
 
 eval "$(direnv hook bash)"
+export DIRENV_LOG_FORMAT=
 EOF
 
-export DIRENV_LOG_FORMAT=
