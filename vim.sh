@@ -14,7 +14,7 @@ if [ $? -ne 0 ]; then
     . "${BASH_ALIASES_FILE_PATH}"
 fi
 
-dpkg -l | grep -E "^ii( )+vim" >/dev/null
+dpkg -l | grep -E "^ii( )+vim( )+" >/dev/null
 if [ $? -ne 0 ]; then
     sudo apt-get -y update
     sudo apt-get -y install vim
