@@ -12,5 +12,5 @@ bash ./peco.sh
 bash ./ghq-peco-alias.sh
 bash ./pyenv.sh
 bash ./ansible.sh
-bash ./nvm.sh
+bash ./nodenv.sh
 bash ./sdkman.sh
