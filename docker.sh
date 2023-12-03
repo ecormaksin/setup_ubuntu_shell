@@ -25,14 +25,14 @@ sudo install -m 0755 -d /etc/apt/keyrings
 
 DOCKER_KEYRING_FILE=/etc/apt/keyrings/docker.gpg
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o "${DOCKER_KEYRING_FILE}"
+curl -fsSL "https://download.docker.com/linux/$(. /etc/os-release && echo "$ID")/gpg" | sudo gpg --dearmor -o "${DOCKER_KEYRING_FILE}"
 
 sudo chmod a+r "${DOCKER_KEYRING_FILE}"
 
 DOCKER_SOURCE_LIST=/etc/apt/sources.list.d/docker.list
 
 echo \
-    "deb [arch="$(dpkg --print-architecture)" signed-by="${DOCKER_KEYRING_FILE}"] https://download.docker.com/linux/ubuntu \
+    "deb [arch="$(dpkg --print-architecture)" signed-by="${DOCKER_KEYRING_FILE}"] https://download.docker.com/linux/$(. /etc/os-release && echo "$ID") \
     "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
     sudo tee "${DOCKER_SOURCE_LIST}" > /dev/null
 sudo apt-get -y update
