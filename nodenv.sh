@@ -17,7 +17,8 @@ EOF
 
 . "${SHELL_RC_FILE_PATH}"
 
-NODE_LATEST_VERSION=$(nodenv install --list | grep -E "^[0-9]" | tail -n 1)
+NODE_BIN_PATH="$HOME/.nodenv/bin/nodenv"
+NODE_LATEST_VERSION=$($NODE_BIN_PATH install --list | grep -E "^[0-9]" | tail -n 1)
 
-nodenv install $NODE_LATEST_VERSION
-nodenv global $NODE_LATEST_VERSION
+$NODE_BIN_PATH install $NODE_LATEST_VERSION
+$NODE_BIN_PATH global $NODE_LATEST_VERSION
