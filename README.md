@@ -26,7 +26,7 @@
       wsl --terminate "<ディストリビューション名>"
       ```
 
-- `LANG=C xdg-user-dirs-gtk-update --force` を実行してホームディレクトリのフォルダ名を日本語から英語へ変更する。
+- `LANG=C xdg-user-dirs-update --force` を実行してホームディレクトリのフォルダ名を日本語から英語へ変更する。
 
 - gitをインストールする。
 
