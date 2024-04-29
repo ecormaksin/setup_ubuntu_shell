@@ -3,7 +3,6 @@
 bash ./curl.sh
 bash ./lang_ja.sh
 bash ./time_zone.sh
-bash ./customize_ps.sh
 bash ./vim.sh
 bash ./xclip.sh
 bash ./golang.sh
