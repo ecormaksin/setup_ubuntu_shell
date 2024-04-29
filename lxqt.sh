@@ -10,4 +10,4 @@ sudo sh -c "echo '/usr/sbin/sddm' > /etc/X11/default-display-manager"
 sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true dpkg-reconfigure sddm"
 sudo sh -c "echo set shared/default-x-display-manager sddm | debconf-communicate"
 sudo apt-get -y update
-sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true apt-get -y install lxqt fonts-noto"
+sudo sh -c "DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true apt-get -y install lxqt lxqt-session fonts-noto"
