@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for PKG_NAME in docker.io docker-doc docker-compose podman-docker containerd runc
+for PKG_NAME in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc
 do
     dpkg -l | grep -E "^ii( )+${PKG_NAME}" >/dev/null
     if [ $? -ne 0 ]; then
@@ -22,19 +22,14 @@ do
 done
 
 sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-DOCKER_KEYRING_FILE=/etc/apt/keyrings/docker.gpg
-
-curl -fsSL "https://download.docker.com/linux/$(. /etc/os-release && echo "$ID")/gpg" | sudo gpg --dearmor -o "${DOCKER_KEYRING_FILE}"
-
-sudo chmod a+r "${DOCKER_KEYRING_FILE}"
-
-DOCKER_SOURCE_LIST=/etc/apt/sources.list.d/docker.list
-
+# Add the repository to Apt sources:
 echo \
-    "deb [arch="$(dpkg --print-architecture)" signed-by="${DOCKER_KEYRING_FILE}"] https://download.docker.com/linux/$(. /etc/os-release && echo "$ID") \
-    "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
-    sudo tee "${DOCKER_SOURCE_LIST}" > /dev/null
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get -y update
 
 for PKG_NAME in docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
