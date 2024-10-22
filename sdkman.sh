@@ -28,7 +28,7 @@ if [ -e "${SDKMAN_CONF_FILE_PATH}" ]; then
     sed -i "s/^sdkman_auto_env=.*/sdkman_auto_env=true/" "${SDKMAN_CONF_FILE_PATH}"
 fi
 
-for VERSION_NAME in 11.0.21-librca 17.0.9-librca 17.0.9-graalce 21-graalce
-do
-    sdk install java $VERSION_NAME
-done
+# for VERSION_NAME in 11.0.21-librca 17.0.9-librca 17.0.9-graalce 21-graalce
+# do
+#     sdk install java $VERSION_NAME
+# done
