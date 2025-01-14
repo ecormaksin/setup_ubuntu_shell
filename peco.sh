@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-dpkg -l | grep -E "^ii( )+peco" >/dev/null
-if [ $? -eq 0 ]; then
-    exit 0
-fi
+curl -L -o /tmp/peco_linux_amd64.tar.gz https://github.com/peco/peco/releases/download/v0.5.11/peco_linux_amd64.tar.gz
 
-sudo apt-get -y update
-sudo apt-get -y install peco
+tar -xzf /tmp/peco_linux_amd64.tar.gz -C /tmp
+
+sudo mv /tmp/peco_linux_amd64/peco /usr/local/bin/

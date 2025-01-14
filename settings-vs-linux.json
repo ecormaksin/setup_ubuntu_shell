@@ -1,0 +1,26 @@
+{
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-1.8",
+      "path": "${env:HOME}/.sdkman/candidates/java/8.0.432-librca",
+      "javadoc": "https://docs.oracle.com/javase/jp/8/docs/api"
+    },
+    {
+      "name": "JavaSE-11",
+      "path": "${env:HOME}/.sdkman/candidates/java/11.0.25-librca",
+      "javadoc": "https://docs.oracle.com/javase/jp/11/docs/api/"
+    },
+    {
+      "name": "JavaSE-17",
+      "path": "${env:HOME}/.sdkman/candidates/java/17.0.13-librca",
+      "javadoc": "https://docs.oracle.com/javase/jp/17/docs/api/"
+    },
+    {
+      "name": "JavaSE-21",
+      "path": "${env:HOME}/.sdkman/candidates/java/21.0.5-librca",
+      "javadoc": "https://docs.oracle.com/javase/jp/21/docs/api/",
+      "default": true
+    }
+  ],
+  "java.jdt.ls.java.home": "${env:HOME}/.sdkman/candidates/java/current"
+}
