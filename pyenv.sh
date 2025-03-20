@@ -37,5 +37,5 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 
 . ~/.profile
 
-pyenv install 3.11.6
-pyenv global 3.11.6
+pyenv install 3.12.9
+pyenv global 3.12.9
