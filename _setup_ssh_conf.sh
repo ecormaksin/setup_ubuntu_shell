@@ -5,7 +5,7 @@ SSH_DIR_PATH=$HOME/.ssh
 [ ! -d "${SSH_DIR_PATH}" ] && mkdir "${SSH_DIR_PATH}" && chmod 700 "${SSH_DIR_PATH}"
 
 tee "${SSH_DIR_PATH}/config" <<EOF >/dev/null
-Include */config
+Include ./config.d/*
 
 Host *
     ServerAliveInterval 60
